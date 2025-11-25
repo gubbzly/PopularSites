@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Child-safe directory of official popular websites and services. All links verified to official sources with minimal malware/virus risk.">
-    <meta name="keywords" content="safe websites, child-safe, official websites, malware-free, virus-free, popular sites directory">
-    <title>Google-Owned Websites & Services Directory</title>
+    <meta name="description" content="Official Sites Directory - Prevent malware by accessing verified official websites only. All links checked to ensure they point to legitimate official sources.">
+    <meta name="keywords" content="official websites, prevent malware, safe websites, verified links, official sites directory, malware protection, legitimate websites">
+    <title>Official Sites Directory - Prevent Malware | Verified Official Websites</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="alternate icon" href="favicon.svg">
     <style>
@@ -21,6 +21,7 @@
             min-height: 100vh;
             color: #333;
             line-height: 1.6;
+            scroll-behavior: smooth;
         }
 
         .container {
@@ -67,6 +68,84 @@
 
         .safety-badge-icon {
             font-size: 1.2rem;
+        }
+
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #666;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding: 5px 0;
+            scrollbar-width: thin;
+            scrollbar-color: #4285f4 #f0f0f0;
+        }
+
+        .nav-buttons::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .nav-buttons::-webkit-scrollbar-track {
+            background: #f0f0f0;
+            border-radius: 10px;
+        }
+
+        .nav-buttons::-webkit-scrollbar-thumb {
+            background: #4285f4;
+            border-radius: 10px;
+        }
+
+        .nav-button {
+            flex-shrink: 0;
+            padding: 8px 16px;
+            background: #f8f9fa;
+            border: 2px solid #e0e0e0;
+            border-radius: 20px;
+            color: #333;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-button:hover {
+            background: #4285f4;
+            color: white;
+            border-color: #4285f4;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(66, 133, 244, 0.3);
+        }
+
+        .nav-button.active {
+            background: #4285f4;
+            color: white;
+            border-color: #4285f4;
         }
 
         .stats {
@@ -125,6 +204,7 @@
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             transition: box-shadow 0.3s ease;
+            scroll-margin-top: 100px;
         }
 
         .category:hover {
@@ -345,17 +425,40 @@
             .stats {
                 gap: 15px;
             }
+
+            .sticky-nav {
+                padding: 10px 0;
+            }
+
+            .nav-title {
+                font-size: 0.8rem;
+                margin-bottom: 8px;
+            }
+
+            .nav-button {
+                padding: 6px 12px;
+                font-size: 0.75rem;
+            }
+
+            .nav-container {
+                padding: 0 10px;
+            }
+
+            .category {
+                scroll-margin-top: 80px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>🌐 Popular Websites & Services Directory</h1>
-            <p>Complete directory of popular websites, services, and Google-owned platforms</p>
+            <h1>🛡️ Official Sites Directory</h1>
+            <p><strong>Prevent Malware - Access Verified Official Websites Only</strong></p>
+            <p style="margin-top: 10px; font-size: 1rem; color: #555;">Every link on this site points directly to the official, legitimate website. Protect yourself from malware, viruses, and phishing by using verified official links.</p>
             <div class="safety-badge">
                 <span class="safety-badge-icon">🛡️</span>
-                <span>Child-Safe Site | Official Websites Only | Minimal Malware/Virus Risk</span>
+                <span>100% Official Links | Malware Protection | Verified Sources | Safe Browsing</span>
             </div>
             <div class="stats">
                 <div class="stat-item">
@@ -369,6 +472,33 @@
             </div>
         </header>
 
+        <nav class="sticky-nav">
+            <div class="nav-container">
+                <div class="nav-title">📌 Quick Navigation</div>
+                <div class="nav-buttons">
+                    <a href="#core" class="nav-button">🔍 Core Google</a>
+                    <a href="#developer" class="nav-button">💻 Developer</a>
+                    <a href="#advertising" class="nav-button">📢 Advertising</a>
+                    <a href="#communication" class="nav-button">💬 Communication</a>
+                    <a href="#ai" class="nav-button">🤖 AI & ML</a>
+                    <a href="#hardware" class="nav-button">📱 Hardware</a>
+                    <a href="#education" class="nav-button">📚 Education</a>
+                    <a href="#security" class="nav-button">🔒 Security</a>
+                    <a href="#shopping" class="nav-button">🛒 Shopping</a>
+                    <a href="#other" class="nav-button">🔧 Other</a>
+                    <a href="#popular-ai" class="nav-button">🤖 Popular AI</a>
+                    <a href="#popular-social" class="nav-button">📱 Social Media</a>
+                    <a href="#popular-video" class="nav-button">🎬 Video</a>
+                    <a href="#popular-gaming" class="nav-button">🎮 Gaming</a>
+                    <a href="#popular-communication" class="nav-button">💬 Comm Tools</a>
+                    <a href="#popular-entertainment" class="nav-button">🎭 Entertainment</a>
+                    <a href="#popular-news" class="nav-button">📰 News</a>
+                    <a href="#popular-shopping" class="nav-button">🛍️ Shopping</a>
+                    <a href="#popular-other" class="nav-button">⭐ Other Sites</a>
+                </div>
+            </div>
+        </nav>
+
         <div class="search-box">
             <input type="text" id="searchInput" placeholder="🔍 Search for a service...">
         </div>
@@ -380,7 +510,7 @@
 
         <div class="categories" id="categoriesContainer">
             <!-- Core Google Services -->
-            <div class="category" data-category="core">
+            <div class="category" id="core" data-category="core">
                 <div class="category-header">
                     <span class="category-icon">🔍</span>
                     <h2 class="category-title">Core Google Services</h2>
@@ -452,7 +582,7 @@
             </div>
 
             <!-- Developer & Enterprise -->
-            <div class="category" data-category="developer">
+            <div class="category" id="developer" data-category="developer">
                 <div class="category-header">
                     <span class="category-icon">💻</span>
                     <h2 class="category-title">Developer & Enterprise</h2>
@@ -504,7 +634,7 @@
             </div>
 
             <!-- Advertising & Marketing -->
-            <div class="category" data-category="advertising">
+            <div class="category" id="advertising" data-category="advertising">
                 <div class="category-header">
                     <span class="category-icon">📢</span>
                     <h2 class="category-title">Advertising & Marketing</h2>
@@ -548,7 +678,7 @@
             </div>
 
             <!-- Communication & Social -->
-            <div class="category" data-category="communication">
+            <div class="category" id="communication" data-category="communication">
                 <div class="category-header">
                     <span class="category-icon">💬</span>
                     <h2 class="category-title">Communication & Social</h2>
@@ -584,7 +714,7 @@
             </div>
 
             <!-- AI & Machine Learning -->
-            <div class="category" data-category="ai">
+            <div class="category" id="ai" data-category="ai">
                 <div class="category-header">
                     <span class="category-icon">🤖</span>
                     <h2 class="category-title">AI & Machine Learning</h2>
@@ -620,7 +750,7 @@
             </div>
 
             <!-- Hardware & Devices -->
-            <div class="category" data-category="hardware">
+            <div class="category" id="hardware" data-category="hardware">
                 <div class="category-header">
                     <span class="category-icon">📱</span>
                     <h2 class="category-title">Hardware & Devices</h2>
@@ -656,7 +786,7 @@
             </div>
 
             <!-- Education & Research -->
-            <div class="category" data-category="education">
+            <div class="category" id="education" data-category="education">
                 <div class="category-header">
                     <span class="category-icon">📚</span>
                     <h2 class="category-title">Education & Research</h2>
@@ -696,7 +826,7 @@
             </div>
 
             <!-- Security & Privacy -->
-            <div class="category" data-category="security">
+            <div class="category" id="security" data-category="security">
                 <div class="category-header">
                     <span class="category-icon">🔒</span>
                     <h2 class="category-title">Security & Privacy</h2>
@@ -724,7 +854,7 @@
             </div>
 
             <!-- Shopping & Commerce -->
-            <div class="category" data-category="shopping">
+            <div class="category" id="shopping" data-category="shopping">
                 <div class="category-header">
                     <span class="category-icon">🛒</span>
                     <h2 class="category-title">Shopping & Commerce</h2>
@@ -748,7 +878,7 @@
             </div>
 
             <!-- Other Services -->
-            <div class="category" data-category="other">
+            <div class="category" id="other" data-category="other">
                 <div class="category-header">
                     <span class="category-icon">🔧</span>
                     <h2 class="category-title">Other Services</h2>
@@ -800,7 +930,7 @@
             </div>
 
             <!-- Popular AI Platforms -->
-            <div class="category" data-category="popular-ai">
+            <div class="category" id="popular-ai" data-category="popular-ai">
                 <div class="category-header">
                     <span class="category-icon">🤖</span>
                     <h2 class="category-title">Popular AI Platforms</h2>
@@ -944,7 +1074,7 @@
             </div>
 
             <!-- Popular Social Media -->
-            <div class="category" data-category="popular-social">
+            <div class="category" id="popular-social" data-category="popular-social">
                 <div class="category-header">
                     <span class="category-icon">📱</span>
                     <h2 class="category-title">Popular Social Media</h2>
@@ -996,7 +1126,7 @@
             </div>
 
             <!-- Popular Video Platforms -->
-            <div class="category" data-category="popular-video">
+            <div class="category" id="popular-video" data-category="popular-video">
                 <div class="category-header">
                     <span class="category-icon">🎬</span>
                     <h2 class="category-title">Popular Video Platforms</h2>
@@ -1044,7 +1174,7 @@
             </div>
 
             <!-- Popular Gaming & Communication -->
-            <div class="category" data-category="popular-gaming">
+            <div class="category" id="popular-gaming" data-category="popular-gaming">
                 <div class="category-header">
                     <span class="category-icon">🎮</span>
                     <h2 class="category-title">Popular Gaming & Communication</h2>
@@ -1096,7 +1226,7 @@
             </div>
 
             <!-- Popular Communication Tools -->
-            <div class="category" data-category="popular-communication">
+            <div class="category" id="popular-communication" data-category="popular-communication">
                 <div class="category-header">
                     <span class="category-icon">💬</span>
                     <h2 class="category-title">Popular Communication Tools</h2>
@@ -1136,7 +1266,7 @@
             </div>
 
             <!-- Popular Entertainment -->
-            <div class="category" data-category="popular-entertainment">
+            <div class="category" id="popular-entertainment" data-category="popular-entertainment">
                 <div class="category-header">
                     <span class="category-icon">🎭</span>
                     <h2 class="category-title">Popular Entertainment</h2>
@@ -1168,7 +1298,7 @@
             </div>
 
             <!-- Popular News & Media -->
-            <div class="category" data-category="popular-news">
+            <div class="category" id="popular-news" data-category="popular-news">
                 <div class="category-header">
                     <span class="category-icon">📰</span>
                     <h2 class="category-title">Popular News & Media</h2>
@@ -1200,7 +1330,7 @@
             </div>
 
             <!-- Popular Shopping -->
-            <div class="category" data-category="popular-shopping">
+            <div class="category" id="popular-shopping" data-category="popular-shopping">
                 <div class="category-header">
                     <span class="category-icon">🛍️</span>
                     <h2 class="category-title">Popular Shopping</h2>
@@ -1232,7 +1362,7 @@
             </div>
 
             <!-- Other Popular Sites -->
-            <div class="category" data-category="popular-other">
+            <div class="category" id="popular-other" data-category="popular-other">
                 <div class="category-header">
                     <span class="category-icon">⭐</span>
                     <h2 class="category-title">Other Popular Sites</h2>
@@ -1277,20 +1407,26 @@
         </div>
 
         <footer>
-            <p><strong>Popular Websites & Services Directory</strong></p>
+            <p><strong>Official Sites Directory - Prevent Malware</strong></p>
             <div style="background: #e8f5e9; padding: 20px; border-radius: 10px; margin: 20px 0; border-left: 4px solid #34a853;">
-                <p style="margin: 0 0 10px 0; color: #2e7d32; font-weight: 600;">
-                    🛡️ Child-Safe Directory - Official Websites Only
+                <p style="margin: 0 0 10px 0; color: #2e7d32; font-weight: 600; font-size: 1.1rem;">
+                    🛡️ Why Use Official Links?
                 </p>
-                <p style="margin: 0; font-size: 0.9rem; color: #555;">
-                    This directory contains only official, verified websites from reputable companies. All links are checked to ensure they point to official sources, minimizing the risk of malware, viruses, or inappropriate content. Perfect for families and children to safely explore popular online services.
+                <p style="margin: 0 0 15px 0; font-size: 0.95rem; color: #555;">
+                    <strong>The Problem:</strong> Fake websites and malicious links can infect your device with malware, steal your data, or trick you into scams. Searching Google or clicking unknown links puts you at risk.
+                </p>
+                <p style="margin: 0 0 15px 0; font-size: 0.95rem; color: #555;">
+                    <strong>The Solution:</strong> This directory provides direct links to verified official websites only. Every link is checked to ensure it points to the legitimate, official source - never a copycat or malicious site.
+                </p>
+                <p style="margin: 0; font-size: 0.95rem; color: #2e7d32; font-weight: 600;">
+                    ✓ 100% Official Links | ✓ Malware Protection | ✓ Verified Sources | ✓ Safe Browsing | ✓ No Phishing Risk
                 </p>
             </div>
-            <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
-                <strong>Safety Features:</strong> Official links only | Minimal malware/virus risk | Family-friendly content | Verified sources
+            <p style="margin-top: 15px; font-size: 0.95rem; color: #666;">
+                <strong>How to Use:</strong> Instead of searching Google (which may show fake results), use this directory to find the official website. Click any link to go directly to the verified official site.
             </p>
-            <p style="margin-top: 10px; font-size: 0.85rem; color: #999;">
-                Last updated: 2025 | All websites are verified official sources
+                <p style="margin-top: 10px; font-size: 0.85rem; color: #999;">
+                Last updated: 2025 | All links verified as official sources to prevent malware and protect your devices
             </p>
         </footer>
     </div>
@@ -1344,6 +1480,53 @@
         // Count total services
         const totalServices = document.querySelectorAll('.service-item').length;
         document.getElementById('totalServices').textContent = totalServices + '+';
+
+        // Navigation active state on scroll
+        const navButtons = document.querySelectorAll('.nav-button');
+        const categories = document.querySelectorAll('.category');
+
+        function updateActiveNav() {
+            let current = '';
+            const scrollPosition = window.scrollY + 150; // Offset for sticky nav
+
+            categories.forEach(category => {
+                const categoryTop = category.offsetTop;
+                const categoryHeight = category.offsetHeight;
+                
+                if (scrollPosition >= categoryTop && scrollPosition < categoryTop + categoryHeight) {
+                    current = category.id;
+                }
+            });
+
+            navButtons.forEach(button => {
+                button.classList.remove('active');
+                if (button.getAttribute('href') === '#' + current) {
+                    button.classList.add('active');
+                }
+            });
+        }
+
+        // Update on scroll
+        window.addEventListener('scroll', updateActiveNav);
+        
+        // Update on page load
+        updateActiveNav();
+
+        // Smooth scroll for navigation buttons
+        navButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    const offsetTop = targetElement.offsetTop - 100; // Account for sticky nav
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
     </script>
 </body>
 </html>
