@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Complete directory of popular websites, services, and platforms including Google services, social media, AI platforms, gaming, and more.">
+    <title>Google-Owned Websites & Services Directory</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate icon" href="favicon.svg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            color: #4285f4;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #4285f4;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .search-box {
+            margin: 30px auto;
+            max-width: 500px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #ddd;
+            border-radius: 50px;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-box input:focus {
+            border-color: #4285f4;
+            box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.1);
+        }
+
+        .categories {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .category {
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .category:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px 30px;
+            color: white;
+            border-bottom: 4px solid rgba(0, 0, 0, 0.2);
+        }
+
+        /* Different colored category bars */
+        .category[data-category="core"] .category-header {
+            background: linear-gradient(135deg, #4285f4 0%, #1a73e8 100%);
+            border-bottom-color: #1565c0;
+        }
+
+        .category[data-category="developer"] .category-header {
+            background: linear-gradient(135deg, #ea4335 0%, #c5221f 100%);
+            border-bottom-color: #a50e0e;
+        }
+
+        .category[data-category="advertising"] .category-header {
+            background: linear-gradient(135deg, #fbbc04 0%, #f9ab00 100%);
+            border-bottom-color: #f57f17;
+        }
+
+        .category[data-category="communication"] .category-header {
+            background: linear-gradient(135deg, #34a853 0%, #2e7d32 100%);
+            border-bottom-color: #1b5e20;
+        }
+
+        .category[data-category="ai"] .category-header {
+            background: linear-gradient(135deg, #9c27b0 0%, #7b1fa2 100%);
+            border-bottom-color: #6a1b9a;
+        }
+
+        .category[data-category="hardware"] .category-header {
+            background: linear-gradient(135deg, #00acc1 0%, #00838f 100%);
+            border-bottom-color: #006064;
+        }
+
+        .category[data-category="education"] .category-header {
+            background: linear-gradient(135deg, #ff6f00 0%, #e65100 100%);
+            border-bottom-color: #bf360c;
+        }
+
+        .category[data-category="security"] .category-header {
+            background: linear-gradient(135deg, #424242 0%, #212121 100%);
+            border-bottom-color: #000000;
+        }
+
+        .category[data-category="shopping"] .category-header {
+            background: linear-gradient(135deg, #e91e63 0%, #c2185b 100%);
+            border-bottom-color: #880e4f;
+        }
+
+        .category[data-category="other"] .category-header {
+            background: linear-gradient(135deg, #607d8b 0%, #455a64 100%);
+            border-bottom-color: #37474f;
+        }
+
+        .category[data-category="popular-social"] .category-header {
+            background: linear-gradient(135deg, #e4405f 0%, #c13584 100%);
+            border-bottom-color: #8b1a4d;
+        }
+
+        .category[data-category="popular-video"] .category-header {
+            background: linear-gradient(135deg, #ff0050 0%, #cc0000 100%);
+            border-bottom-color: #990000;
+        }
+
+        .category[data-category="popular-gaming"] .category-header {
+            background: linear-gradient(135deg, #5865f2 0%, #4752c4 100%);
+            border-bottom-color: #3b45a3;
+        }
+
+        .category[data-category="popular-communication"] .category-header {
+            background: linear-gradient(135deg, #0088cc 0%, #006699 100%);
+            border-bottom-color: #004d66;
+        }
+
+        .category[data-category="popular-entertainment"] .category-header {
+            background: linear-gradient(135deg, #e50914 0%, #b20710 100%);
+            border-bottom-color: #8b050a;
+        }
+
+        .category[data-category="popular-news"] .category-header {
+            background: linear-gradient(135deg, #ff6600 0%, #cc5200 100%);
+            border-bottom-color: #993d00;
+        }
+
+        .category[data-category="popular-shopping"] .category-header {
+            background: linear-gradient(135deg, #ff9900 0%, #cc7700 100%);
+            border-bottom-color: #995500;
+        }
+
+        .category[data-category="popular-other"] .category-header {
+            background: linear-gradient(135deg, #7289da 0%, #5b6eae 100%);
+            border-bottom-color: #445385;
+        }
+
+        .category[data-category="popular-ai"] .category-header {
+            background: linear-gradient(135deg, #10a37f 0%, #0d8566 100%);
+            border-bottom-color: #0a6b52;
+        }
+
+        .category-icon {
+            font-size: 2rem;
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .category-content {
+            padding: 25px 30px;
+        }
+
+        .service-list {
+            list-style: none;
+        }
+
+        .service-item {
+            margin-bottom: 10px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-left: 4px solid #4285f4;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .service-item:hover {
+            background: #e8f0fe;
+            transform: translateX(8px);
+            border-left-color: #34a853;
+        }
+
+        .service-link {
+            color: #1a73e8;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .service-link:hover {
+            color: #1557b0;
+            text-decoration: underline;
+        }
+
+        .service-link::after {
+            content: '↗';
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+
+        .service-link:hover::after {
+            opacity: 1;
+        }
+
+        .service-description {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 4px;
+            font-style: italic;
+        }
+
+        footer {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            margin-top: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        footer p {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            display: none;
+        }
+
+        .no-results.show {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .category-header {
+                padding: 15px 20px;
+            }
+
+            .category-content {
+                padding: 20px;
+            }
+
+            .stats {
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌐 Popular Websites & Services Directory</h1>
+            <p>Complete directory of popular websites, services, and Google-owned platforms</p>
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number" id="totalServices">200+</div>
+                    <div class="stat-label">Services Listed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">Categories</div>
+                </div>
+            </div>
+        </header>
+
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="🔍 Search for a service...">
+        </div>
+
+        <div class="no-results" id="noResults">
+            <h2>No results found</h2>
+            <p>Try searching with different keywords</p>
+        </div>
+
+        <div class="categories" id="categoriesContainer">
+            <!-- Core Google Services -->
+            <div class="category" data-category="core">
+                <div class="category-header">
+                    <span class="category-icon">🔍</span>
+                    <h2 class="category-title">Core Google Services</h2>
+                </div>
+                <div class="category-content">
+                    <ul class="service-list">
+                    <li class="service-item">
+                        <a href="https://www.google.com" target="_blank" class="service-link">Google Search</a>
+                        <div class="service-description">Web search engine</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.google.com/imghp" target="_blank" class="service-link">Google Images</a>
+                        <div class="service-description">Image search</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.google.com/maps" target="_blank" class="service-link">Google Maps</a>
+                        <div class="service-description">Maps and navigation</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://mail.google.com" target="_blank" class="service-link">Gmail</a>
+                        <div class="service-description">Email service</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://drive.google.com" target="_blank" class="service-link">Google Drive</a>
+                        <div class="service-description">Cloud storage</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://docs.google.com" target="_blank" class="service-link">Google Docs</a>
+                        <div class="service-description">Word processor</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://sheets.google.com" target="_blank" class="service-link">Google Sheets</a>
+                        <div class="service-description">Spreadsheet application</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://slides.google.com" target="_blank" class="service-link">Google Slides</a>
+                        <div class="service-description">Presentation software</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://photos.google.com" target="_blank" class="service-link">Google Photos</a>
+                        <div class="service-description">Photo storage and sharing</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://calendar.google.com" target="_blank" class="service-link">Google Calendar</a>
+                        <div class="service-description">Time management</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://translate.google.com" target="_blank" class="service-link">Google Translate</a>
+                        <div class="service-description">Language translation</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.google.com/chrome" target="_blank" class="service-link">Google Chrome</a>
+                        <div class="service-description">Web browser</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://play.google.com" target="_blank" class="service-link">Google Play</a>
+                        <div class="service-description">Digital distribution platform</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.youtube.com" target="_blank" class="service-link">YouTube</a>
+                        <div class="service-description">Video sharing platform</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://myaccount.google.com" target="_blank" class="service-link">Google Account</a>
+                        <div class="service-description">Account management</div>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Developer & Enterprise -->
+            <div class="category" data-category="developer">
+                <div class="category-header">
+                    <span class="category-icon">💻</span>
+                    <h2 class="category-title">Developer & Enterprise</h2>
+                </div>
+                <div class="category-content">
+                    <ul class="service-list">
+                    <li class="service-item">
+                        <a href="https://developers.google.com" target="_blank" class="service-link">Google Developers</a>
+                        <div class="service-description">Developer resources</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://cloud.google.com" target="_blank" class="service-link">Google Cloud Platform</a>
+                        <div class="service-description">Cloud computing services</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://console.cloud.google.com" target="_blank" class="service-link">Google Cloud Console</a>
+                        <div class="service-description">Cloud management console</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://firebase.google.com" target="_blank" class="service-link">Firebase</a>
+                        <div class="service-description">App development platform</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://flutter.dev" target="_blank" class="service-link">Flutter</a>
+                        <div class="service-description">UI framework</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://angular.io" target="_blank" class="service-link">Angular</a>
+                        <div class="service-description">Web framework</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://dart.dev" target="_blank" class="service-link">Dart</a>
+                        <div class="service-description">Programming language</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.google.com/script/start" target="_blank" class="service-link">Google Apps Script</a>
+                        <div class="service-description">Automation platform</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://workspace.google.com" target="_blank" class="service-link">Google Workspace</a>
+                        <div class="service-description">Business productivity suite</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://support.google.com/enterprise" target="_blank" class="service-link">Google Enterprise</a>
+                        <div class="service-description">Enterprise solutions</div>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Advertising & Marketing -->
+            <div class="category" data-category="advertising">
+                <div class="category-header">
+                    <span class="category-icon">📢</span>
+                    <h2 class="category-title">Advertising & Marketing</h2>
+                </div>
+                <div class="category-content">
+                    <ul class="service-list">
+                    <li class="service-item">
+                        <a href="https://ads.google.com" target="_blank" class="service-link">Google Ads</a>
+                        <div class="service-description">Online advertising platform</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://analytics.google.com" target="_blank" class="service-link">Google Analytics</a>
+                        <div class="service-description">Web analytics service</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://tagmanager.google.com" target="_blank" class="service-link">Google Tag Manager</a>
+                        <div class="service-description">Tag management system</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://marketingplatform.google.com" target="_blank" class="service-link">Google Marketing Platform</a>
+                        <div class="service-description">Marketing tools</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.google.com/adsense" target="_blank" class="service-link">Google AdSense</a>
+                        <div class="service-description">Publisher monetization</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://merchants.google.com" target="_blank" class="service-link">Google Merchant Center</a>
+                        <div class="service-description">Product listing management</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://trends.google.com" target="_blank" class="service-link">Google Trends</a>
+                        <div class="service-description">Search trend analysis</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.google.com/business" target="_blank" class="service-link">Google Business Profile</a>
+                        <div class="service-description">Business listings</div>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Communication & Social -->
+            <div class="category" data-category="communication">
+                <div class="category-header">
+                    <span class="category-icon">💬</span>
+                    <h2 class="category-title">Communication & Social</h2>
+                </div>
+                <div class="category-content">
+                    <ul class="service-list">
+                    <li class="service-item">
+                        <a href="https://hangouts.google.com" target="_blank" class="service-link">Google Hangouts</a>
+                        <div class="service-description">Communication platform</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://chat.google.com" target="_blank" class="service-link">Google Chat</a>
+                        <div class="service-description">Team messaging</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://meet.google.com" target="_blank" class="service-link">Google Meet</a>
+                        <div class="service-description">Video conferencing</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://duo.google.com" target="_blank" class="service-link">Google Duo</a>
+                        <div class="service-description">Video calling</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.blogger.com" target="_blank" class="service-link">Blogger</a>
+                        <div class="service-description">Blogging platform</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://groups.google.com" target="_blank" class="service-link">Google Groups</a>
+                        <div class="service-description">Discussion forums</div>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- AI & Machine Learning -->
+            <div class="category" data-category="ai">
+                <div class="category-header">
+                    <span class="category-icon">🤖</span>
+                    <h2 class="category-title">AI & Machine Learning</h2>
+                </div>
+                <div class="category-content">
+                    <ul class="service-list">
+                    <li class="service-item">
+                        <a href="https://ai.google" target="_blank" class="service-link">Google AI</a>
+                        <div class="service-description">AI research and development</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://deepmind.com" target="_blank" class="service-link">DeepMind</a>
+                        <div class="service-description">AI research company</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.tensorflow.org" target="_blank" class="service-link">TensorFlow</a>
+                        <div class="service-description">Machine learning framework</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://bard.google.com" target="_blank" class="service-link">Google Bard (Gemini)</a>
+                        <div class="service-description">AI chatbot</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://cloud.google.com/ai-platform" target="_blank" class="service-link">Google AI Platform</a>
+                        <div class="service-description">ML platform</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.kaggle.com" target="_blank" class="service-link">Kaggle</a>
+                        <div class="service-description">Data science community</div>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Hardware & Devices -->
+            <div class="category" data-category="hardware">
+                <div class="category-header">
+                    <span class="category-icon">📱</span>
+                    <h2 class="category-title">Hardware & Devices</h2>
+                </div>
+                <div class="category-content">
+                    <ul class="service-list">
+                    <li class="service-item">
+                        <a href="https://www.android.com" target="_blank" class="service-link">Android</a>
+                        <div class="service-description">Mobile operating system</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://store.google.com" target="_blank" class="service-link">Google Store</a>
+                        <div class="service-description">Hardware store</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://pixel.google.com" target="_blank" class="service-link">Google Pixel</a>
+                        <div class="service-description">Smartphone line</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://nest.google.com" target="_blank" class="service-link">Google Nest</a>
+                        <div class="service-description">Smart home devices</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://wearos.google.com" target="_blank" class="service-link">Wear OS</a>
+                        <div class="service-description">Wearable operating system</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.google.com/chromebook" target="_blank" class="service-link">Chromebook</a>
+                        <div class="service-description">Laptop computers</div>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Education & Research -->
+            <div class="category" data-category="education">
+                <div class="category-header">
+                    <span class="category-icon">📚</span>
+                    <h2 class="category-title">Education & Research</h2>
+                </div>
+                <div class="category-content">
+                    <ul class="service-list">
+                    <li class="service-item">
+                        <a href="https://edu.google.com" target="_blank" class="service-link">Google for Education</a>
+                        <div class="service-description">Educational tools</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://classroom.google.com" target="_blank" class="service-link">Google Classroom</a>
+                        <div class="service-description">Learning management</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://scholar.google.com" target="_blank" class="service-link">Google Scholar</a>
+                        <div class="service-description">Academic search</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://books.google.com" target="_blank" class="service-link">Google Books</a>
+                        <div class="service-description">Digital library</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://artsandculture.google.com" target="_blank" class="service-link">Google Arts & Culture</a>
+                        <div class="service-description">Cultural content</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.google.com/earth" target="_blank" class="service-link">Google Earth</a>
+                        <div class="service-description">3D mapping</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://news.google.com" target="_blank" class="service-link">Google News</a>
+                        <div class="service-description">News aggregation</div>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Security & Privacy -->
+            <div class="category" data-category="security">
+                <div class="category-header">
+                    <span class="category-icon">🔒</span>
+                    <h2 class="category-title">Security & Privacy</h2>
+                </div>
+                <div class="category-content">
+                    <ul class="service-list">
+                    <li class="service-item">
+                        <a href="https://myactivity.google.com" target="_blank" class="service-link">Google My Activity</a>
+                        <div class="service-description">Activity tracking</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://passwords.google.com" target="_blank" class="service-link">Google Password Manager</a>
+                        <div class="service-description">Password management</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://jigsaw.google.com" target="_blank" class="service-link">Jigsaw</a>
+                        <div class="service-description">Technology incubator</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://safety.google" target="_blank" class="service-link">Google Safety Center</a>
+                        <div class="service-description">Online safety resources</div>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Shopping & Commerce -->
+            <div class="category" data-category="shopping">
+                <div class="category-header">
+                    <span class="category-icon">🛒</span>
+                    <h2 class="category-title">Shopping & Commerce</h2>
+                </div>
+                <div class="category-content">
+                    <ul class="service-list">
+                    <li class="service-item">
+                        <a href="https://shopping.google.com" target="_blank" class="service-link">Google Shopping</a>
+                        <div class="service-description">Product search</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://pay.google.com" target="_blank" class="service-link">Google Pay</a>
+                        <div class="service-description">Digital payment</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.google.com/wallet" target="_blank" class="service-link">Google Wallet</a>
+                        <div class="service-description">Digital wallet</div>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Other Services -->
+            <div class="category" data-category="other">
+                <div class="category-header">
+                    <span class="category-icon">🔧</span>
+                    <h2 class="category-title">Other Services</h2>
+                </div>
+                <div class="category-content">
+                    <ul class="service-list">
+                    <li class="service-item">
+                        <a href="https://sites.google.com" target="_blank" class="service-link">Google Sites</a>
+                        <div class="service-description">Website builder</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://domains.google" target="_blank" class="service-link">Google Domains</a>
+                        <div class="service-description">Domain registration</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://fonts.google.com" target="_blank" class="service-link">Google Fonts</a>
+                        <div class="service-description">Web fonts library</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://keep.google.com" target="_blank" class="service-link">Google Keep</a>
+                        <div class="service-description">Note-taking service</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://tasks.google.com" target="_blank" class="service-link">Google Tasks</a>
+                        <div class="service-description">Task management</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://forms.google.com" target="_blank" class="service-link">Google Forms</a>
+                        <div class="service-description">Survey creation</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://jamboard.google.com" target="_blank" class="service-link">Google Jamboard</a>
+                        <div class="service-description">Digital whiteboard</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://doodles.google.com" target="_blank" class="service-link">Google Doodles</a>
+                        <div class="service-description">Celebratory homepage logos</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://about.google" target="_blank" class="service-link">Google About</a>
+                        <div class="service-description">Company information</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://abc.xyz" target="_blank" class="service-link">Alphabet Inc.</a>
+                        <div class="service-description">Parent company</div>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Popular AI Platforms -->
+            <div class="category" data-category="popular-ai">
+                <div class="category-header">
+                    <span class="category-icon">🤖</span>
+                    <h2 class="category-title">Popular AI Platforms</h2>
+                </div>
+                <div class="category-content">
+                    <ul class="service-list">
+                    <li class="service-item">
+                        <a href="https://chat.openai.com" target="_blank" class="service-link">ChatGPT</a>
+                        <div class="service-description">AI chatbot by OpenAI</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://openai.com" target="_blank" class="service-link">OpenAI</a>
+                        <div class="service-description">AI research company</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://claude.ai" target="_blank" class="service-link">Claude</a>
+                        <div class="service-description">AI assistant by Anthropic</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.anthropic.com" target="_blank" class="service-link">Anthropic</a>
+                        <div class="service-description">AI safety research company</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://gemini.google.com" target="_blank" class="service-link">Google Gemini</a>
+                        <div class="service-description">Google's AI model</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://bard.google.com" target="_blank" class="service-link">Google Bard</a>
+                        <div class="service-description">Google's AI chatbot</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.midjourney.com" target="_blank" class="service-link">Midjourney</a>
+                        <div class="service-description">AI image generation</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://openai.com/dall-e-3" target="_blank" class="service-link">DALL-E</a>
+                        <div class="service-description">AI image generation by OpenAI</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://stability.ai" target="_blank" class="service-link">Stable Diffusion</a>
+                        <div class="service-description">Open-source AI image generation</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.perplexity.ai" target="_blank" class="service-link">Perplexity AI</a>
+                        <div class="service-description">AI-powered search engine</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://character.ai" target="_blank" class="service-link">Character.AI</a>
+                        <div class="service-description">Conversational AI characters</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.runwayml.com" target="_blank" class="service-link">Runway</a>
+                        <div class="service-description">AI video and image tools</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://elevenlabs.io" target="_blank" class="service-link">ElevenLabs</a>
+                        <div class="service-description">AI voice generation</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.notion.so/product/ai" target="_blank" class="service-link">Notion AI</a>
+                        <div class="service-description">AI-powered workspace</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.jasper.ai" target="_blank" class="service-link">Jasper</a>
+                        <div class="service-description">AI content creation</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.copy.ai" target="_blank" class="service-link">Copy.ai</a>
+                        <div class="service-description">AI writing assistant</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.huggingface.co" target="_blank" class="service-link">Hugging Face</a>
+                        <div class="service-description">AI model repository</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.replicate.com" target="_blank" class="service-link">Replicate</a>
+                        <div class="service-description">AI model hosting platform</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.cursor.sh" target="_blank" class="service-link">Cursor</a>
+                        <div class="service-description">AI-powered code editor</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.github.com/features/copilot" target="_blank" class="service-link">GitHub Copilot</a>
+                        <div class="service-description">AI pair programmer</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://poe.com" target="_blank" class="service-link">Poe</a>
+                        <div class="service-description">AI chat aggregator</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://you.com" target="_blank" class="service-link">You.com</a>
+                        <div class="service-description">AI search engine</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.synthesia.io" target="_blank" class="service-link">Synthesia</a>
+                        <div class="service-description">AI video generation</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.deepl.com" target="_blank" class="service-link">DeepL</a>
+                        <div class="service-description">AI translation service</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.grammarly.com" target="_blank" class="service-link">Grammarly</a>
+                        <div class="service-description">AI writing assistant</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.khanmigo.ai" target="_blank" class="service-link">Khanmigo</a>
+                        <div class="service-description">AI tutoring by Khan Academy</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://beta.tome.app" target="_blank" class="service-link">Tome</a>
+                        <div class="service-description">AI presentation tool</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://gamma.app" target="_blank" class="service-link">Gamma</a>
+                        <div class="service-description">AI presentation and documents</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.leonardo.ai" target="_blank" class="service-link">Leonardo.AI</a>
+                        <div class="service-description">AI image generation platform</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.civitai.com" target="_blank" class="service-link">Civitai</a>
+                        <div class="service-description">AI art model sharing</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.descript.com" target="_blank" class="service-link">Descript</a>
+                        <div class="service-description">AI video and podcast editing</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.murf.ai" target="_blank" class="service-link">Murf</a>
+                        <div class="service-description">AI voiceover generator</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.adobe.com/sensei/generative-ai.html" target="_blank" class="service-link">Adobe Firefly</a>
+                        <div class="service-description">Adobe's generative AI</div>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Popular Social Media -->
+            <div class="category" data-category="popular-social">
+                <div class="category-header">
+                    <span class="category-icon">📱</span>
+                    <h2 class="category-title">Popular Social Media</h2>
+                </div>
+                <div class="category-content">
+                    <ul class="service-list">
+                    <li class="service-item">
+                        <a href="https://www.tiktok.com" target="_blank" class="service-link">TikTok</a>
+                        <div class="service-description">Short-form video platform</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.instagram.com" target="_blank" class="service-link">Instagram</a>
+                        <div class="service-description">Photo and video sharing</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.facebook.com" target="_blank" class="service-link">Facebook</a>
+                        <div class="service-description">Social networking platform</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://twitter.com" target="_blank" class="service-link">Twitter/X</a>
+                        <div class="service-description">Social media and news</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.reddit.com" target="_blank" class="service-link">Reddit</a>
+                        <div class="service-description">Social news and discussion</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.linkedin.com" target="_blank" class="service-link">LinkedIn</a>
+                        <div class="service-description">Professional networking</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.pinterest.com" target="_blank" class="service-link">Pinterest</a>
+                        <div class="service-description">Visual discovery platform</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.snapchat.com" target="_blank" class="service-link">Snapchat</a>
+                        <div class="service-description">Multimedia messaging app</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.tumblr.com" target="_blank" class="service-link">Tumblr</a>
+                        <div class="service-description">Microblogging platform</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.twitch.tv" target="_blank" class="service-link">Twitch</a>
+                        <div class="service-description">Live streaming platform</div>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Popular Video Platforms -->
+            <div class="category" data-category="popular-video">
+                <div class="category-header">
+                    <span class="category-icon">🎬</span>
+                    <h2 class="category-title">Popular Video Platforms</h2>
+                </div>
+                <div class="category-content">
+                    <ul class="service-list">
+                    <li class="service-item">
+                        <a href="https://www.youtube.com" target="_blank" class="service-link">YouTube</a>
+                        <div class="service-description">Video sharing platform</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.netflix.com" target="_blank" class="service-link">Netflix</a>
+                        <div class="service-description">Streaming service</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.hulu.com" target="_blank" class="service-link">Hulu</a>
+                        <div class="service-description">Streaming entertainment</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.disney.com" target="_blank" class="service-link">Disney+</a>
+                        <div class="service-description">Disney streaming service</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.amazon.com/prime" target="_blank" class="service-link">Amazon Prime Video</a>
+                        <div class="service-description">Video streaming service</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.hbomax.com" target="_blank" class="service-link">HBO Max</a>
+                        <div class="service-description">Premium streaming</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.paramountplus.com" target="_blank" class="service-link">Paramount+</a>
+                        <div class="service-description">Streaming service</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.peacocktv.com" target="_blank" class="service-link">Peacock</a>
+                        <div class="service-description">NBCUniversal streaming</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.crunchyroll.com" target="_blank" class="service-link">Crunchyroll</a>
+                        <div class="service-description">Anime streaming</div>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Popular Gaming & Communication -->
+            <div class="category" data-category="popular-gaming">
+                <div class="category-header">
+                    <span class="category-icon">🎮</span>
+                    <h2 class="category-title">Popular Gaming & Communication</h2>
+                </div>
+                <div class="category-content">
+                    <ul class="service-list">
+                    <li class="service-item">
+                        <a href="https://discord.com" target="_blank" class="service-link">Discord</a>
+                        <div class="service-description">Voice and text chat</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.roblox.com" target="_blank" class="service-link">Roblox</a>
+                        <div class="service-description">Online game platform</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.minecraft.net" target="_blank" class="service-link">Minecraft</a>
+                        <div class="service-description">Sandbox video game</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.epicgames.com" target="_blank" class="service-link">Epic Games</a>
+                        <div class="service-description">Game developer and store</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://store.steampowered.com" target="_blank" class="service-link">Steam</a>
+                        <div class="service-description">Digital game distribution</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.xbox.com" target="_blank" class="service-link">Xbox</a>
+                        <div class="service-description">Gaming platform</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.playstation.com" target="_blank" class="service-link">PlayStation</a>
+                        <div class="service-description">Gaming console platform</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.nintendo.com" target="_blank" class="service-link">Nintendo</a>
+                        <div class="service-description">Gaming company</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.leagueoflegends.com" target="_blank" class="service-link">League of Legends</a>
+                        <div class="service-description">MOBA game</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.valorant.com" target="_blank" class="service-link">Valorant</a>
+                        <div class="service-description">Tactical FPS game</div>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Popular Communication Tools -->
+            <div class="category" data-category="popular-communication">
+                <div class="category-header">
+                    <span class="category-icon">💬</span>
+                    <h2 class="category-title">Popular Communication Tools</h2>
+                </div>
+                <div class="category-content">
+                    <ul class="service-list">
+                    <li class="service-item">
+                        <a href="https://www.whatsapp.com" target="_blank" class="service-link">WhatsApp</a>
+                        <div class="service-description">Messaging app</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://telegram.org" target="_blank" class="service-link">Telegram</a>
+                        <div class="service-description">Cloud-based messaging</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.signal.org" target="_blank" class="service-link">Signal</a>
+                        <div class="service-description">Encrypted messaging</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://zoom.us" target="_blank" class="service-link">Zoom</a>
+                        <div class="service-description">Video conferencing</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.skype.com" target="_blank" class="service-link">Skype</a>
+                        <div class="service-description">Video and voice calls</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://slack.com" target="_blank" class="service-link">Slack</a>
+                        <div class="service-description">Team communication</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://teams.microsoft.com" target="_blank" class="service-link">Microsoft Teams</a>
+                        <div class="service-description">Collaboration platform</div>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Popular Entertainment -->
+            <div class="category" data-category="popular-entertainment">
+                <div class="category-header">
+                    <span class="category-icon">🎭</span>
+                    <h2 class="category-title">Popular Entertainment</h2>
+                </div>
+                <div class="category-content">
+                    <ul class="service-list">
+                    <li class="service-item">
+                        <a href="https://www.spotify.com" target="_blank" class="service-link">Spotify</a>
+                        <div class="service-description">Music streaming</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://music.apple.com" target="_blank" class="service-link">Apple Music</a>
+                        <div class="service-description">Music streaming service</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.soundcloud.com" target="_blank" class="service-link">SoundCloud</a>
+                        <div class="service-description">Audio distribution platform</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.twitch.tv" target="_blank" class="service-link">Twitch</a>
+                        <div class="service-description">Live streaming</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.onlyfans.com" target="_blank" class="service-link">OnlyFans</a>
+                        <div class="service-description">Content subscription platform</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.patreon.com" target="_blank" class="service-link">Patreon</a>
+                        <div class="service-description">Membership platform</div>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Popular News & Media -->
+            <div class="category" data-category="popular-news">
+                <div class="category-header">
+                    <span class="category-icon">📰</span>
+                    <h2 class="category-title">Popular News & Media</h2>
+                </div>
+                <div class="category-content">
+                    <ul class="service-list">
+                    <li class="service-item">
+                        <a href="https://www.cnn.com" target="_blank" class="service-link">CNN</a>
+                        <div class="service-description">News network</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.bbc.com" target="_blank" class="service-link">BBC</a>
+                        <div class="service-description">British Broadcasting Corporation</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.nytimes.com" target="_blank" class="service-link">The New York Times</a>
+                        <div class="service-description">News publication</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.theguardian.com" target="_blank" class="service-link">The Guardian</a>
+                        <div class="service-description">News media</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.reuters.com" target="_blank" class="service-link">Reuters</a>
+                        <div class="service-description">News agency</div>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Popular Shopping -->
+            <div class="category" data-category="popular-shopping">
+                <div class="category-header">
+                    <span class="category-icon">🛍️</span>
+                    <h2 class="category-title">Popular Shopping</h2>
+                </div>
+                <div class="category-content">
+                    <ul class="service-list">
+                    <li class="service-item">
+                        <a href="https://www.amazon.com" target="_blank" class="service-link">Amazon</a>
+                        <div class="service-description">E-commerce platform</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.ebay.com" target="_blank" class="service-link">eBay</a>
+                        <div class="service-description">Online marketplace</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.aliexpress.com" target="_blank" class="service-link">AliExpress</a>
+                        <div class="service-description">Online retail</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.shopify.com" target="_blank" class="service-link">Shopify</a>
+                        <div class="service-description">E-commerce platform</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.etsy.com" target="_blank" class="service-link">Etsy</a>
+                        <div class="service-description">Handmade and vintage marketplace</div>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Other Popular Sites -->
+            <div class="category" data-category="popular-other">
+                <div class="category-header">
+                    <span class="category-icon">⭐</span>
+                    <h2 class="category-title">Other Popular Sites</h2>
+                </div>
+                <div class="category-content">
+                    <ul class="service-list">
+                    <li class="service-item">
+                        <a href="https://www.wikipedia.org" target="_blank" class="service-link">Wikipedia</a>
+                        <div class="service-description">Free online encyclopedia</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://github.com" target="_blank" class="service-link">GitHub</a>
+                        <div class="service-description">Code hosting platform</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://stackoverflow.com" target="_blank" class="service-link">Stack Overflow</a>
+                        <div class="service-description">Developer Q&A platform</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.airbnb.com" target="_blank" class="service-link">Airbnb</a>
+                        <div class="service-description">Lodging marketplace</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.uber.com" target="_blank" class="service-link">Uber</a>
+                        <div class="service-description">Ride-sharing platform</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.dropbox.com" target="_blank" class="service-link">Dropbox</a>
+                        <div class="service-description">Cloud storage</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.wikihow.com" target="_blank" class="service-link">WikiHow</a>
+                        <div class="service-description">How-to guides</div>
+                    </li>
+                    <li class="service-item">
+                        <a href="https://www.quora.com" target="_blank" class="service-link">Quora</a>
+                        <div class="service-description">Q&A platform</div>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p><strong>Popular Websites & Services Directory</strong></p>
+            <p>This directory includes popular websites, services, and platforms from Google and other major companies</p>
+            <p style="margin-top: 15px; font-size: 0.9rem; color: #999;">
+                Last updated: 2024 | Comprehensive directory of the most popular and widely-used websites and services.
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        const categoriesContainer = document.getElementById('categoriesContainer');
+        const noResults = document.getElementById('noResults');
+        const categoryElements = document.querySelectorAll('.category');
+
+        searchInput.addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase().trim();
+            let hasResults = false;
+
+            categoryElements.forEach(category => {
+                const serviceItems = category.querySelectorAll('.service-item');
+                let categoryHasResults = false;
+
+                serviceItems.forEach(item => {
+                    const linkText = item.querySelector('.service-link').textContent.toLowerCase();
+                    const description = item.querySelector('.service-description').textContent.toLowerCase();
+                    
+                    if (linkText.includes(searchTerm) || description.includes(searchTerm)) {
+                        item.style.display = 'block';
+                        categoryHasResults = true;
+                        hasResults = true;
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+
+                // Show/hide category based on results
+                if (categoryHasResults || !searchTerm) {
+                    category.style.display = 'block';
+                } else {
+                    category.style.display = 'none';
+                }
+            });
+
+            // Show/hide no results message
+            if (searchTerm && !hasResults) {
+                noResults.classList.add('show');
+                categoriesContainer.style.display = 'none';
+            } else {
+                noResults.classList.remove('show');
+                categoriesContainer.style.display = 'flex';
+            }
+        });
+
+        // Count total services
+        const totalServices = document.querySelectorAll('.service-item').length;
+        document.getElementById('totalServices').textContent = totalServices + '+';
+    </script>
+</body>
+</html>
