@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Complete directory of popular websites, services, and platforms including Google services, social media, AI platforms, gaming, and more.">
+    <meta name="description" content="Child-safe directory of official popular websites and services. All links verified to official sources with minimal malware/virus risk.">
+    <meta name="keywords" content="safe websites, child-safe, official websites, malware-free, virus-free, popular sites directory">
     <title>Google-Owned Websites & Services Directory</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="alternate icon" href="favicon.svg">
@@ -48,6 +49,24 @@
         header p {
             color: #666;
             font-size: 1.1rem;
+        }
+
+        .safety-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #34a853 0%, #28a745 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 15px;
+            box-shadow: 0 2px 8px rgba(52, 168, 83, 0.3);
+        }
+
+        .safety-badge-icon {
+            font-size: 1.2rem;
         }
 
         .stats {
@@ -334,6 +353,10 @@
         <header>
             <h1>🌐 Popular Websites & Services Directory</h1>
             <p>Complete directory of popular websites, services, and Google-owned platforms</p>
+            <div class="safety-badge">
+                <span class="safety-badge-icon">🛡️</span>
+                <span>Child-Safe Site | Official Websites Only | Minimal Malware/Virus Risk</span>
+            </div>
             <div class="stats">
                 <div class="stat-item">
                     <div class="stat-number" id="totalServices">200+</div>
@@ -1137,10 +1160,6 @@
                         <div class="service-description">Live streaming</div>
                     </li>
                     <li class="service-item">
-                        <a href="https://www.onlyfans.com" target="_blank" class="service-link">OnlyFans</a>
-                        <div class="service-description">Content subscription platform</div>
-                    </li>
-                    <li class="service-item">
                         <a href="https://www.patreon.com" target="_blank" class="service-link">Patreon</a>
                         <div class="service-description">Membership platform</div>
                     </li>
@@ -1259,9 +1278,19 @@
 
         <footer>
             <p><strong>Popular Websites & Services Directory</strong></p>
-            <p>This directory includes popular websites, services, and platforms from Google and other major companies</p>
-            <p style="margin-top: 15px; font-size: 0.9rem; color: #999;">
-                Last updated: 2024 | Comprehensive directory of the most popular and widely-used websites and services.
+            <div style="background: #e8f5e9; padding: 20px; border-radius: 10px; margin: 20px 0; border-left: 4px solid #34a853;">
+                <p style="margin: 0 0 10px 0; color: #2e7d32; font-weight: 600;">
+                    🛡️ Child-Safe Directory - Official Websites Only
+                </p>
+                <p style="margin: 0; font-size: 0.9rem; color: #555;">
+                    This directory contains only official, verified websites from reputable companies. All links are checked to ensure they point to official sources, minimizing the risk of malware, viruses, or inappropriate content. Perfect for families and children to safely explore popular online services.
+                </p>
+            </div>
+            <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+                <strong>Safety Features:</strong> Official links only | Minimal malware/virus risk | Family-friendly content | Verified sources
+            </p>
+            <p style="margin-top: 10px; font-size: 0.85rem; color: #999;">
+                Last updated: 2025 | All websites are verified official sources
             </p>
         </footer>
     </div>

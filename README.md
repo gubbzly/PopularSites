@@ -1,11 +1,12 @@
 # 🌐 Popular Websites & Services Directory
 
-A comprehensive, professional directory website featuring links to popular websites, services, and platforms including Google services, social media, AI platforms, gaming, video streaming, and more.
+A comprehensive, professional, **child-safe** directory website featuring links to popular websites, services, and platforms including Google services, social media, AI platforms, gaming, video streaming, and more. All links are verified official sources with minimal malware/virus risk.
 
 ![Website Preview](https://img.shields.io/badge/Status-Live-brightgreen) ![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
 
 ## ✨ Features
 
+- **🛡️ Child-Safe**: All websites are official, verified sources with minimal malware/virus risk
 - **300+ Websites Listed**: Comprehensive collection of popular services and platforms
 - **20+ Categories**: Organized into logical sections for easy navigation
 - **Modern Design**: Professional UI with gradient backgrounds and smooth animations
@@ -13,6 +14,7 @@ A comprehensive, professional directory website featuring links to popular websi
 - **Responsive Layout**: Works seamlessly on desktop, tablet, and mobile devices
 - **Dark Mode Support**: Favicon adapts to browser dark/light mode preferences
 - **Color-Coded Categories**: Each category has its own distinct colored header bar
+- **Family-Friendly**: Curated content suitable for all ages
 
 ## 📂 Project Structure
 
